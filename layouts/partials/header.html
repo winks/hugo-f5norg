@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <title>{{ .Site.Title }} : {{ .Title }}</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/media/css/foundation.min.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="{{ .Site.BaseUrl }}/media/css/new.css" type="text/css" media="screen" />
+  {{ if isset .Site.Params "highlight" }}<link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/highlight/{{ .Site.Params.highlight }}.css">{{ end }}
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link href="/favicon.ico" rel="icon" type="image/x-icon">
+  <!-- RSS -->
+  {{ if .RSSlink }}<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />{{ end }}
+  <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
+  <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
+  {{ with .Site.Params.googleAuthorship }}<link rel="author" href="http://plus.google.com/{{ . }}">{{ end }}
+</head>
+<body{{ with .Site.Params.theme }} class="{{ . }}"{{ end }}>
+
+  <div class="headerarea top">
+    <h1><a href="{{ .Site.BaseUrl }}/">{{ .Title }}</a></h1>
+  </div>
+  <div class="row">
+    <div class="small-17 small-centered columns xall">
+
+<!-- NAVI -->
+  <div class="row">
+    <div class="large-13 large-centered columns">
+
+  <div class="row">
+  <div class="gah">
+
+    <div class="large-7 columns">
+       <ul class="breadcrumbs">
+         <li class="first-elem">
+           <a id="top2" href="/">Home</a>
+         </li>
+<li><a href="/stack">Stack</a></li><li class="selected" ><a href="/code">Code</a></li><li><a href="/blog">Blog</a></li><li><a href="/about">About</a></li>
+        </ul>
+    </div>
+    <div class="large-4 columns hide-for-small">
+      <ul class="breadcrumbs">
+        <li class="first-elem"><span>\o/</span></li>
+      </ul>
+    </div>
+    <div class="large-5 columns">
+      <ul class="breadcrumbs brd right">
+<li class="first-elem"><a href="/">f5n</a></li><li><a href="/code">code</a></li>
+      </ul>
+    </div>
+
+  </div>
+  </div>
+<!-- /NAVI -->
+
+    </div>
+  </div>

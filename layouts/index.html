@@ -1,0 +1,35 @@
+{{ template "theme/partials/header.html" . }}
+  <section class="main">
+    <div class="row">
+      <div class="large-13 large-centered columns" role="main">
+        <article>
+
+          <div class="content-header"><h2></h2></div>
+
+<div class="row">
+  <div class="large-8 columns">
+    <h3>Recent Posts</h3>
+    <ul>
+
+    {{ range first 10 .Data.Pages }}{{ if or (eq .Section "blog") (eq .Section "stack") }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}{{ end }}
+    </ul>
+  </div>
+
+  <div class="large-8 columns">
+<p>&nbsp;</p>
+    <p class="txr">
+    I will not be pushed, filed, stamped, indexed<br />
+    briefed, debriefed or numbered.<br />
+    My life is my own.<br />
+    </p>
+  </div>
+</div>
+
+        </article>
+      </div>
+    </div>
+  </section>
+
+{{ template "theme/partials/footer.html" . }}

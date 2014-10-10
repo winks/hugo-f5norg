@@ -1,0 +1,16 @@
+{{ template "theme/partials/header.html" . }}
+<!-- MAIN -->
+  <section class="main">
+    <div class="row">
+      <div class="large-13 large-centered columns" role="main">
+        <article>
+
+<div class="content-header"><h2>{{ .Title }}</h2></div>
+{{ .Content }}
+
+        </article>
+      </div>
+    </div>
+  </section>
+<!-- /MAIN -->
+{{ template "theme/partials/footer.html" . }}

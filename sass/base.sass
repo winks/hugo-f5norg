@@ -1,0 +1,140 @@
+/***************************************
+ * variables & mixins
+ **************************************/
+$darkRed: #300
+$mediumRed: #900
+$lightRed: #f00
+$xgrey: #eee
+$bggrey: #eaeaea
+$bgmiddle: #fff
+$linkBackColor: #f6f6f6
+
+$borderThick: .2em solid $mediumRed
+$borderThin: .1em solid $xgrey
+$borderMain: 1px solid #c3c3c3
+
+@mixin txc
+  text-align: center
+
+@mixin txr
+  text-align: right
+
+@mixin floatr
+  float: right
+
+/***************************************
+ * general stuff
+ **************************************/
+body
+  background-color: $bggrey
+  color: $darkRed
+  font-family: "trebuchet ms","arial",sans-serif
+  font-size: 0.8em
+  padding-top: 30px
+  padding-bottom: 30px
+
+h2, h3, h4, h5
+  color: $darkRed
+  a
+    color: $darkRed
+    &:hover
+      color: $darkRed
+
+a
+  color: $mediumRed
+  text-decoration: none
+  &:hover
+    color: $lightRed
+
+.post-content a:link
+  background-color: $linkBackColor
+
+.container
+  width: 800px
+  background-color: #ffffff
+  border: $borderMain
+  -webkit-box-shadow: 0 1px 4px rgba(100, 100, 100, 0.4)
+  -moz-box-shadow: 0 1px 4px rgba(100, 100, 100, 0.4)
+  box-shadow: 0 1px 4px rgba(100, 100, 100, 0.4)
+
+/***************************************
+ * sections
+ **************************************/
+.content-header h2
+  font-size: 3em
+
+.headerarea
+  display: none
+
+.navarea
+  margin-top: 2em
+  height: 2em
+  padding-top: .5em
+  border-top: $borderThick
+  border-bottom: $borderThick
+  background-color: $xgrey
+
+.footerarea
+  @include txc
+  border-top: $borderThin
+  padding-bottom: 20px
+
+/***************************************
+ * navigation
+ **************************************/
+
+.sitenav
+  list-style-type: none
+  li
+    display: inline
+    &:before
+      content: "\0020 \0020 \0020 \00B7 \0020"
+    &.first-elem:before
+      content: " "
+
+.breadcrumbs
+  @extend .sitenav
+  @include txr
+  @include floatr
+  a
+    color: $darkRed
+  li:before
+    content: "\0020 \0020 \0020 \00BB \0020"
+
+/***************************************
+ * misc
+ **************************************/
+
+.txc
+  @include txc
+.txr
+  @include txr
+
+.post-date
+  @include floatr
+  padding-left: 1em
+  padding-bottom: 1em
+
+.stackdef
+  padding-bottom: 4em
+
+.stackpost-content
+  ul
+    list-style-type: none
+  li
+    &:before
+      content: "\0020 \00BB \0020"
+  h3
+    padding-top: 0
+    font-size: 1.2em
+
+
+.post-content > ul:first-child
+  float: right
+  border: 1px solid $darkRed
+  margin-left: 10px
+  margin-right: 0
+  padding: 10px 30px
+  clear: both
+  a:link
+    background-color: $bgmiddle

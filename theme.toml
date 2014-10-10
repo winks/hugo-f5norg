@@ -1,0 +1,11 @@
+name = "f5norg"
+license = "GTFO"
+source_repo = "https://github.com/winks/x"
+description = ""
+tags = ["blog", "personal"]
+features = ["blog", "personal"]
+
+[author]
+    name = "Florian Anderiasch"
+    email = "fa@art-core.org"
+    url = "http://f5n.org"
