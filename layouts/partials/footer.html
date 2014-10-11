@@ -18,8 +18,7 @@
       </div>
     </div>
 
-<!-- Piwik -->
-<!--var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.art-core.org/" : "http://stats.art-core.org/"); -->
+<!-- Piwik --><!--var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.art-core.org/" : "http://stats.art-core.org/"); -->
 <script type="text/javascript">
 var pkBaseURL = "http://stats.art-core.org/";
 document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
@@ -29,8 +28,7 @@ var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
 piwikTracker.trackPageView();
 piwikTracker.enableLinkTracking();
 } catch( err ) {}
-</script><noscript><p><img src="http://stats.art-core.org/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript>
-<!-- End Piwik Tracking Code -->
+</script><noscript><p><img src="http://stats.art-core.org/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript><!--/Piwik -->
 {{ if isset .Site.Params "highlight" }}<script src="{{ .Site.BaseUrl }}/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>{{ end }}
 {{ with .Site.Params.googleAnalytics }}

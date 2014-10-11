@@ -3,17 +3,13 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <title>{{ .Site.Title }} : {{ .Title }}</title>
-  <!-- CSS -->
   <link rel="stylesheet" href="{{ .Site.BaseUrl }}/media/css/foundation.min.css" type="text/css" media="screen" />
   <link rel="stylesheet" href="{{ .Site.BaseUrl }}/media/css/new.css" type="text/css" media="screen" />
   {{ if isset .Site.Params "highlight" }}<link rel="stylesheet" href="{{ .Site.BaseUrl }}/css/highlight/{{ .Site.Params.highlight }}.css">{{ end }}
-  <!-- Icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link href="/favicon.ico" rel="icon" type="image/x-icon">
-  <!-- RSS -->
   {{ if .RSSlink }}<link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />{{ end }}
   <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
   <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
@@ -26,7 +22,6 @@
   </div>
   <div class="row">
     <div class="small-17 small-centered columns xall">
-
 <!-- NAVI -->
   <div class="row">
     <div class="large-13 large-centered columns">
@@ -36,10 +31,11 @@
 
     <div class="large-7 columns">
        <ul class="breadcrumbs">
-         <li class="first-elem">
-           <a id="top2" href="/">Home</a>
-         </li>
-<li><a href="/stack">Stack</a></li><li class="selected" ><a href="/code">Code</a></li><li><a href="/blog">Blog</a></li><li><a href="/about">About</a></li>
+         <li class="first-elem"><a id="top2" href="/">Home</a></li>
+         <li><a href="/stack">Stack</a></li>
+         <li><a href="/code">Code</a></li>
+         <li><a href="/blog">Blog</a></li>
+         <li><a href="/about">About</a></li>
         </ul>
     </div>
     <div class="large-4 columns hide-for-small">
@@ -49,13 +45,24 @@
     </div>
     <div class="large-5 columns">
       <ul class="breadcrumbs brd right">
-<li class="first-elem"><a href="/">f5n</a></li><li><a href="/code">code</a></li>
-      </ul>
+        <li class="first-elem"><a href="/">f5n</a></li>{{ if ne .Title .Site.Title }}
+{{ if eq .Section "" }}
+  {{ if eq .Title "Blogs" }}
+        <li><a href="/blog">blog</a></li>
+  {{ else }}
+    {{ if eq .Title "Stacks" }}
+        <li><a href="/stack">stack</a></li>
+    {{ else }}
+        <li><a href="/{{ lower .Title }}">{{ lower .Title }}</a></li>
+    {{ end }}
+  {{ end }}
+{{ else }}
+         <li><a href="/{{ .Section }}">{{ .Section }}</a></li>
+{{ end }}{{ end }}      </ul>
     </div>
 
   </div>
   </div>
 <!-- /NAVI -->
-
     </div>
   </div>
