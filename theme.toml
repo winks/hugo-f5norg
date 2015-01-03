@@ -1,6 +1,6 @@
 name = "f5norg"
-license = "GTFO"
-source_repo = "https://github.com/winks/x"
+license = "CC-BY-SA 2.0"
+source_repo = "https://github.com/winks/hugo-f5norg"
 description = ""
 tags = ["blog", "personal"]
 features = ["blog", "personal"]
