@@ -1,4 +1,4 @@
-{{ template "theme/partials/header.html" . }}
+{{ define "main" }}
 <div class="content container">
   <ul class="posts">
   {{ range .Data.Pages }}
@@ -6,4 +6,4 @@
   {{ end }}
   </ul>
 </div>
-{{ template "theme/partials/footer.html" . }}
+{{ end }}

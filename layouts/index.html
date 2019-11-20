@@ -1,4 +1,4 @@
-{{ template "theme/partials/header.html" . }}
+{{ partial "header.html" . }}
   <section class="main">
     <div class="row">
       <div class="large-13 large-centered columns" role="main">
@@ -8,12 +8,22 @@
 
 <div class="row">
   <div class="large-8 columns">
-    <h3>Latest Posts</h3>
+    <h4>Latest posts</h4>
     <ul>
-
-    {{ range first 10 .Data.Pages }}{{ if or (eq .Section "blog") (eq .Section "stack") }}
-      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-    {{ end }}{{ end }}
+{{ range where .Data.Pages "Section" "blog" }}
+  {{ range first 10 .Pages }}
+      <li><time class="pull-right post-list">{{ .Date.Format "2006-01-02" }}</time>
+      <a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+{{ end }}
+    </ul>
+    <ul>
+{{ range where .Data.Pages "Section" "stack" }}
+  {{ range first 1 .Pages }}
+      <li><time class="pull-right post-list">{{ .Date.Format "2006-01-02" }}</time>
+      <a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+{{ end }}
     </ul>
   </div>
 
@@ -27,10 +37,14 @@
     </p>
   </div>
 </div>
-
+<!--
+<div class="row">
+<hr>
+</div>
+-->
         </article>
       </div>
     </div>
   </section>
 
-{{ template "theme/partials/footer.html" . }}
+{{ partial "footer.html" . }}

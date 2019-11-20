@@ -1,0 +1,25 @@
+{{ define "header" }}
+<title>Notes from {{ trim .RelPermalink "/" }}</title>
+{{ end }}
+
+{{ define "main" }}
+{{ $baseref := .RelPermalink }}
+
+<!-- MAIN -->
+  <section class="main">
+    <div class="row">
+      <div class="large-13 large-centered columns" role="main">
+        <article class="h-entry h-feed">
+
+<h2>Notes from {{ trim .RelPermalink "/" }}</h2>
+<ul>
+{{ range .Data.Pages.ByTitle.Reverse }}
+<li><a href="{{ .Permalink }}">{{ trim (replace .RelPermalink $baseref "") "/" }}</a></li>
+{{ end }}
+</ul>
+
+        </article>
+      </div>
+    </div>
+  </section>
+{{ end }}

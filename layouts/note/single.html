@@ -1,0 +1,59 @@
+{{ define "header" }}
+{{- $year := index (split $.File.Dir "/") 0 -}}
+{{- $month := .File.BaseFileName -}}
+<title>Notes from {{ $year }}/{{ $month }}  - {{ .Site.Title }}</title>
+{{- end -}}{{/* define "header" */}}
+
+{{- define "main" -}}
+{{- $year := index (split $.File.Dir "/") 0 -}}
+{{- $month := .File.BaseFileName -}}
+
+<!-- MAIN -->
+  <section class="main">
+    <div class="row">
+      <div class="large-13 large-centered columns" role="main">
+        <article class="h-entry h-feed">
+
+<h2>Notes from {{ dateFormat "January 2006" (printf "%s-%s-01" $year $month) }}</h2>
+{{- range sort (index .Site.Data $year $month).entries "date" "desc" }}
+{{- $displaydate := dateFormat "2006-01-02 15:04" (index . "date") }}
+{{ $photo0 := "" }}{{ $photo1 := "" }}{{ $photo2 := "" }}
+{{- if index . "thumbnail" }}
+{{ $photo0 = (printf     "<a href='%s'><img src='%s' class='mpnote' /></a>" (index (index . "photo") 0) (index (index . "thumbnail") 0)) }}
+ {{- if index (index . "thumbnail") 1 }}
+{{ $photo1 = (printf "<br><a href='%s'><img src='%s' class='mpnote' /></a>" (index (index . "photo") 1) (index (index . "thumbnail") 1)) }}
+ {{- if index (index . "thumbnail") 2 }}
+{{ $photo2 = (printf "<br><a href='%s'><img src='%s' class='mpnote' /></a>" (index (index . "photo") 2) (index (index . "thumbnail") 2)) }}
+ {{ end -}}{{ end -}}
+{{- else if index . "photo" }}
+{{ $photo0 = (printf     "<a href='%s'><img src='%s' class='mpnote' /></a>" (index (index . "photo") 0) (index (index . "photo") 0)) }}
+ {{- if index (index . "photo") 1 }}
+{{ $photo1 = (printf "<br><a href='%s'><img src='%s' class='mpnote' /></a>" (index (index . "photo") 1) (index (index . "photo") 1)) }}
+ {{- if index (index . "photo") 2 }}
+{{ $photo2 = (printf "<br><a href='%s'><img src='%s' class='mpnote' /></a>" (index (index . "photo") 2) (index (index . "photo") 2)) }}
+ {{ end -}}{{ end -}}
+{{ end -}}
+
+{{- $para := (printf "<a href='#%s' title='%s'>%s</a><br /> " (index . "slug") $displaydate $displaydate) -}}
+{{- if or (index . "in-reply-to") (index . "repost-of") }}{{ $para = "" }}{{ end -}}
+<article class="h-entry" id="{{ index . "slug" }}">
+{{- if index . "in-reply-to" -}}
+<div class="u-in-reply-to h-cite"><a href="#{{ index . "slug" }}" title="{{ $displaydate }}" class="u-url">↪</a> <a href="{{ index . "in-reply-to" }}" class="u-url p-author">{{ index . "in-reply-to-name" }}</a>: {{ with index . "in-reply-to-content" }}<blockquote class="e-content">{{ markdownify . }}</blockquote>{{ end }}</div>
+{{- end -}}
+{{- if index . "repost-of" -}}
+<div class="u-repost-of h-cite"><a href="#{{ index . "slug" }}" title="{{ $displaydate }}" class="u-url">♺</a> <cite><a href="{{ index . "repost-of" }}" class="p-author u-url">{{ index . "repost-of-name" }}</a></cite>: <blockquote class="e-content">{{ markdownify (index . "repost-of-content") }}</blockquote></div>
+{{- end -}}
+{{- if ge (countwords (index . "content")) 1 }}
+<div class="e-content">
+<p>
+{{- printf "%s%s%s%s<br>%s" $para $photo0 $photo1 $photo2 (index . "content") | markdownify }}</p>
+</div>
+{{- end }}
+
+{{- end }}
+        </article>
+      </div>
+    </div>
+  </section>
+<hr>
+{{- end -}}
