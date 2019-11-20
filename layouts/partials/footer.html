@@ -4,13 +4,13 @@
       <a href="/fa.asc">gpg key</a> &middot;
       <a href="http://codeschmie.de" rel="me">old blog</a> &middot;
       <a href="https://twitter.com/anderiasch" rel="me">twitter</a> &middot;
+      <a href="https://mastodon.social/@wink" rel="me">fediverse</a> &middot;
       <span class="show-for-small"><br /></span>
       &middot;
       <a href="https://github.com/winks" rel="me">github</a> &middot;
       <a href="https://facebook.com/florian.anderiasch" rel="me">fb</a> &middot;
-      <a href="http://gplus.to/anderiasch" rel="me">+</a> &middot;
-      <a href="http://xing.to/fa" rel="me">xing</a> &middot;
-      <a href="http://www.imdb.com/title/tt0061287/quotes">~</a> &middot;
+      <a href="https://xing.to/fa" rel="me">xing</a> &middot;
+      <a href="https://www.imdb.com/title/tt0061287/quotes">~</a> &middot;
       <a href="#top"> &uarr; </a> &middot;
     </div>
   </footer>
@@ -18,27 +18,8 @@
       </div>
     </div>
 
-<!-- Piwik --><!--var pkBaseURL = (("https:" == document.location.protocol) ? "https://stats.art-core.org/" : "http://stats.art-core.org/"); -->
-<script type="text/javascript">
-var pkBaseURL = "http://stats.art-core.org/";
-document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-</script><script type="text/javascript">
-try {
-var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 1);
-piwikTracker.trackPageView();
-piwikTracker.enableLinkTracking();
-} catch( err ) {}
-</script><noscript><p><img src="http://stats.art-core.org/piwik.php?idsite=1" style="border:0" alt="" /></p></noscript><!--/Piwik -->
 {{ if isset .Site.Params "highlight" }}<script src="{{ .Site.BaseUrl }}/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>{{ end }}
-{{ with .Site.Params.googleAnalytics }}
-<script>
-  var _gaq=[['_setAccount','{{ . }}'],['_trackPageview']];
-  (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-  s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
-{{ end }}
 
 </body>
 </html>
