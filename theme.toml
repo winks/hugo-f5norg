@@ -8,4 +8,4 @@ features = ["blog", "personal"]
 [author]
     name = "Florian Anderiasch"
     email = "fa@art-core.org"
-    url = "http://f5n.org"
+    url = "https://f5n.org"
