@@ -6,8 +6,8 @@
         <article class="h-entry">
 
 <div class="content-header">
-  <span class="post-date dt-published">{{ .Date.Format "Mon Jan 02 2006" }}<br />{{ .ReadingTime }} minute read{{ if .Site.DisqusShortname }} &middot; <a href="{{ .Permalink }}#disqus_thread">Comments</a>{{ end }}</span>
   <h2 class="p-name">{{ .Title }}</h2>
+  <span class="post-date dt-published">{{ .Date.Format "Mon Jan 02 2006" }}<br />{{ .ReadingTime }} minute read{{ if .Site.DisqusShortname }} &middot; <a href="{{ .Permalink }}#disqus_thread">Comments</a>{{ end }}</span>
 </div>
 <div class="post-content e-content">
 {{ .Content }}

@@ -8,6 +8,7 @@ $xgrey: #eee
 $bggrey: #eaeaea
 $bgmiddle: #fff
 $linkBackColor: #f6f6f6
+$codeRed: #7f0a0c
 
 $borderThick: .2em solid $mediumRed
 $borderThin: .1em solid $xgrey
@@ -151,8 +152,10 @@ footer > div
 
 .post-date
   @include floatr
-  padding-left: 1em
-  padding-bottom: 1em
+  background-color: $bggrey
+  padding: 0.5em
+  margin-left: 0.5em
+  margin-bottom: 0.5em
   text-align: right
 
 @media (min-width: 785px)
@@ -161,6 +164,7 @@ footer > div
 
   body
     padding-top: 30px
+    line-height: 1.5
 
   .xall
     padding-top: 30px
@@ -184,10 +188,6 @@ time
 /***************************************
  * stack-specific stuff, untested
  **************************************/
-
-.stackdef
-  padding-top: 1em
-  padding-bottom: 3em
 
 .stackpost-content
   ul
@@ -225,4 +225,11 @@ img.mpnote
   max-width: 600px
 
 pre
-  padding-bottom: 1.25em
+  padding-bottom: 1em
+
+.code
+  font-family: monospace
+  font-weight: normal
+  font-size: 1.25em
+  line-height: 1.5
+  color: $codeRed
