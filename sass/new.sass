@@ -30,13 +30,18 @@ body
   background-color: $bggrey
   color: $darkRed
   font-family: "trebuchet ms","arial",sans-serif
-  font-size: 13px
+  font-size: 16px
   padding-top: 0
   padding-bottom: 30px
   line-height: 1.5
+  text-align: justify
+
+li
+  text-align: left
 
 h2, h3, h4, h5
   color: $darkRed
+  text-align: left
   font-family: "trebuchet ms","arial",sans-serif
   a
     color: $darkRed
@@ -105,7 +110,6 @@ footer > div
   background-color: $xgrey
   color: $mediumRed
   border: 0
-  margin-top: 4px
   margin-bottom: 0
   padding-top: 0
   padding-bottom: 0
@@ -131,8 +135,11 @@ footer > div
   text-transform: none
   font-size: 16px
 
+.bru
+  margin-top: 4px
+
 .brd
-  margin-top: 7px
+  margin-top: 10px
 
 /* sass? */
 .gah ul.brd li:before
@@ -154,21 +161,29 @@ footer > div
 .post-date
   @include floatr
   background-color: $bggrey
-  padding: 0.5em
-  margin-left: 0.5em
+  padding: 1em
+  margin-left: 1.5em
   margin-bottom: 0.5em
   text-align: right
 
 @media (max-width: 749px)
   body
-    font-size: 15px
-  .breadcrumbs
-    margin-top: 7px
+    font-size: 16px
+  .bru
+    margin-top: 8px
     margin-bottom: 4px
+  .brd
+    margin-top: 10px
+    margin-bottom: 4px
+  .post-date
+    padding: 0.4em
+    margin-left: 0.5em
+    margin-bottom: 0.5em
+
 
 @media (min-width: 750px)
   .breadcrumbs > * a, .breadcrumbs > * span
-    font-size: 13px
+    font-size: 16px
 
   body
     padding-top: 30px
@@ -185,12 +200,14 @@ footer > div
     margin-left: 1em
     margin-right: 1em
 
+  .bru
+    margin-top: 8px
+
   .brd
     margin-top: 6px
 
-
 time
-  font-size: x-small
+  font-size: small
 
 /***************************************
  * stack-specific stuff, untested
