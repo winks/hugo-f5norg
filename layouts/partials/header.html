@@ -2,20 +2,21 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ .Site.Title }} : {{ .Title }}</title>
-  <link rel="stylesheet" href="/media/css/foundation.mini.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="/media/css/new.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="/media/css/v3.css" type="text/css" media="screen" />
   <link rel="icon" href="/media/img/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon.png">
   <link rel="shortcut icon" href="/favicon.ico">
   <meta name="description" content="{{ if ne .Description "" }}{{ .Description }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
   <meta name="keywords" content="{{ range $index, $element := .Keywords }}{{ if gt $index 0 }},{{ end }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
+<!--
   <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
   <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
   <link rel="micropub" href="http://i.f5n.de/micropub/index.php" />
   <link rel="webmention" href="https://webmention.io/f5n.org/webmention" />
   <link rel="pingback" href="https://webmention.io/f5n.org/xmlrpc" />
+-->
 {{ with .OutputFormats.Get "rss" -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
@@ -35,7 +36,7 @@
     <div class="large-13 large-centered columns">
 
   <div class="row">
-  <div class="gah">
+  <div class="gah flex">
 
     <div class="large-7 columns">
        <ul class="breadcrumbs bru">

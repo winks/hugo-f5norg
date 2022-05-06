@@ -1,0 +1,338 @@
+/***************************************
+ * variables & mixins
+ **************************************/
+$darkRed: #300
+$mediumRed: #900
+$lightRed: #f00
+$xgrey: #eee
+$bggrey: #eaeaea
+$bgmiddle: #fff
+$linkBackColor: #f6f6f6
+$codeRed: #7f0a0c
+
+$borderThick: .2em solid $mediumRed
+$borderThin: .1em solid $xgrey
+$borderMain: 1px solid #c3c3c3
+
+@mixin txc
+  text-align: center
+
+/***************************************
+ * general stuff
+ **************************************/
+body
+  background-color: $bggrey
+  color: $darkRed
+  font-family: "trebuchet ms",system-ui,sans-serif
+  font-size: 16px
+  line-height: 1.5
+  text-align: justify
+  margin: auto
+  padding-top: 30px
+  padding-bottom: 30px
+
+h2, h3, h4, h5
+  color: $darkRed
+  text-align: left
+  font-weight: normal
+  a
+    color: $darkRed
+    &:hover
+      color: $darkRed
+    &:link
+      background-color: #fff
+      /* needed? */
+
+h2
+  font-size: 2.1em
+
+h3
+  font-size: 1.8em
+
+h4
+  font-size: 1.5em
+
+a
+  color: $mediumRed
+  text-decoration: none
+  &:hover
+    color: $lightRed
+    text-decoration: none
+
+article a:link
+  background-color: $linkBackColor
+
+li
+  text-align: left
+
+/***************************************
+ * enough.css
+ **************************************/
+img,video
+  max-width: 100%
+  height: auto
+
+code,kbd,pre
+ font-family: ui-monospace,SFMono-Regular,Monaco,monospace
+
+pre
+  background-color: #f8f8ff
+  font-size: smaller
+  overflow: auto
+  padding: 1em
+
+/***************************************
+ * layout / foundation
+ **************************************/
+.row
+  width: 100%
+  margin-left: auto
+  margin-right: auto
+  margin-top: 0
+  margin-bottom: 0
+
+.row:before,.row:after
+  content: " "
+  display: table
+
+.row:after
+  clear: both
+
+.columns
+  position: relative
+  margin-left: auto
+  margin-right: auto
+  float: none !important
+
+.left
+  float: left !important
+
+.right
+  float: right !important
+
+.large-4
+  position: relative
+  width: 25%
+
+.large-5
+  position: relative
+  width: 31.25%
+
+.large-7
+  position: relative
+  width: 43.75%
+
+.large-11
+  position: relative
+  width: 68.75%
+
+.xall
+  background-color: #ffffff
+  border: $borderMain
+  -webkit-box-shadow: 0 1px 4px rgba(100, 100, 100, 0.4)
+  -moz-box-shadow: 0 1px 4px rgba(100, 100, 100, 0.4)
+  box-shadow: 0 1px 4px rgba(100, 100, 100, 0.4)
+  padding-left: 100px
+  padding-right: 100px
+  padding-top: 30px
+  padding-bottom: 0
+  width: 768px
+
+.headerarea
+  display: none
+
+.gah
+  padding-top: -20px
+  border-top: $borderThick
+  border-bottom: $borderThick
+  background-color: $xgrey
+  min-height: 45px
+
+.flex
+  display: flex
+
+footer > div
+  @include txc
+  border-top: $borderThin
+  padding-top: 3px
+  padding-bottom: 20px
+
+/***************************************
+ * navigation
+ **************************************/
+.breadcrumbs
+  background-color: $xgrey
+  color: $mediumRed
+  border: 0
+  margin-bottom: 0
+  padding-top: 0
+  padding-bottom: 0
+  padding-left: 0
+  padding-right: 0
+  list-style-type: none
+  display: block
+  overflow: hidden
+  margin-left:0
+  list-style: none
+  span
+    color: $darkRed
+  a
+    color: $mediumRed
+    text-decoration: none
+  li:before
+    content: "\00B7"
+    margin: 0 0.5em
+    color: $darkRed
+    font-weight: bold
+    top: -1px
+
+.breadcrumbs > *
+  margin: 0
+  float: left
+  font-size: 0.6875em
+  text-transform: uppercase
+
+.breadcrumbs > *:hover a, .breadcrumbs > *:focus a
+  text-decoration: none
+  color: $lightRed
+
+/* sass? */
+.breadcrumbs > * a, .breadcrumbs > * span
+  text-transform: none
+  font-size: 16px
+
+.gah > div
+  padding: 0
+  margin: 0
+  margin-top: -6px
+
+.bru
+  padding-left: 15px
+
+.brd
+  padding-right: 15px
+  border-radius: 3px
+
+/* sass? */
+.gah ul.brd li:before
+  content: "\00BB"
+
+.gah li.first-elem:before, .gah ul.brd li.first-elem:before
+  content: " "
+
+/***************************************
+ * misc
+ **************************************/
+.txc
+  @include txc
+
+.txr
+  text-align: right
+
+.post-date
+  float: right
+  background-color: $bggrey
+  padding: 1em
+  margin-left: 1.5em
+  margin-bottom: 0.5em
+  text-align: right
+
+.code
+  font-family: monospace
+  font-weight: normal
+  font-size: 1.25em
+  line-height: 1.5
+  color: $codeRed
+
+code
+  font-family: Inconsolata,"Liberation Mono",Courier,monospace
+  font-weight: normal
+  font-size: 15px
+  color: #9b4747
+
+time
+  font-size: small
+
+@font-face
+  font-family: 'Inconsolata'
+  font-style: normal
+  font-weight: 400
+  font-stretch: normal
+  src: url(/media/inconsolata.ttf) format('truetype')
+
+/***************************************
+ * mobile
+ **************************************/
+
+@media (min-width: 750px)
+  .show-for-small
+    visibility: hidden
+    display: none
+
+@media (max-width: 749px)
+  body
+    padding: 0
+    margin: 0
+  article
+    padding: 0 10px
+  .row, .columns, .xall
+    padding: 0
+    margin: 0
+  .hide-for-small
+    visibility: hidden
+    display: none
+  .xall
+    width: 100%
+    margin-bottom: 10px
+  section
+    padding: 0 10px
+  .gah
+    display: inherit
+  .brd
+    margin-top: 24px
+    margin-right: 6px
+  .large-4,.large-5,.large-7,.large-11
+    width: 100%
+  .post-date
+    padding: 0.4em
+    margin-left: 0.5em
+    margin-bottom: 0.5em
+
+
+/***************************************
+ * stack-specific stuff, untested
+ **************************************/
+
+.stackpost-content
+  ul
+    list-style-type: none
+  li
+    &:before
+      content: "\0020 \00BB \0020"
+  h3
+    padding-top: 0
+    font-size: 1.2em
+
+/***************************************
+ * /blog/2015/popular-movies-i-might-have-seen/
+ * /blog/2016/travel-costa-rica/
+ **************************************/
+
+.red-green > ul > li > strong
+  color: #4da44d
+  font-weight: bold
+
+.red-green > ul > li
+  list-style: none
+  color: #cc0000
+
+figure
+  margin-left: auto
+  margin-right: auto
+  width: 550px
+
+figcaption h4
+  font-weight: normal
+  text-align: center
+  font-size: 1em
+  margin-top: 10px
